@@ -92,16 +92,16 @@ class HomeController extends Controller
     }
 
     public function update(Request $req, $id){
-
+        $request= $req->session()->get('username');
     	$user = User::find($id);
 
-    	$user->username = $req->uname;
-    	$user->name = $req->name;
-    	$user->dept = $req->dept;
-    	$user->cgpa = $req->cgpa;
+    	$user->username = $request;
+    	$user->Name = $req->name;
+    	$user->email = $req->email;
+    	
     	$user->save();
 
-		return redirect()->route('home.stdlist');
+		return redirect()->route('home.profile');
     }
 	public function delete($id){
 
@@ -115,9 +115,14 @@ class HomeController extends Controller
 		return redirect()->route('home.stdlist');
 	}
 
-    public function profile(){
+    public function profile(Request $req){
 
-        return view('home.profile');
+        $request= $req->session()->get('username');
+        $stdList = User::where('username',$request)->get();
+
+        //echo $stdList;
+        return view('home.profile', ['std'=> $stdList[0]]);
+        
     }
 
     public function upload(Request $req){

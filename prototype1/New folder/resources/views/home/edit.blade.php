@@ -16,7 +16,7 @@
 	<table border="0">
 		<tr>
 			<td>UserId</td>
-			<td>{{$std['userId']}}</td>
+			<td>{{$std['id']}}</td>
 		</tr>
 		<tr>
 			<td>Username</td>
@@ -24,35 +24,13 @@
 		</tr>
 		<tr>
 			<td>Name</td>
-			<td><input type="text" name="name" value="{{$std['name']}}"></td>
+			<td><input type="text" name="name" value="{{$std['Name']}}"></td>
 		</tr>
 		<tr>
 			<td>CGPA</td>
-			<td><input type="text" name="cgpa" value="{{$std['cgpa']}}"></td>
+			<td><input type="text" name="email" value="{{$std['email']}}"></td>
 		</tr>
-		<tr>
-			<td>DEPT</td>
-			<td>
-				<select name="dept">
-					<option 
-						@if($std['dept'] == 'CSE')
-							selected
-						@endif
-					 value="CSE">CSE</option>
-					<option 
-						@if($std['dept'] == 'SE')
-							selected
-						@endif
-					value="SE">SE</option>
-					<option 
-						@if($std['dept'] == 'CSSE')
-							selected
-						@endif
-
-					value="CSSE">CSSE</option>
-				</select>
-			</td>
-		</tr>
+		
 		<tr>
 			<td></td>
 			<td><input type="submit" name="save" value="Save"></td>
