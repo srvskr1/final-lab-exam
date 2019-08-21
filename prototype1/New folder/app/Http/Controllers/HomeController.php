@@ -183,6 +183,11 @@ class HomeController extends Controller
 
         return redirect()->route('home.medilist');
     }
+    public function medidelete($id){
+
+        $std = medicine::find($id);
+        return view('home.medidelete', ['std'=>$std]);
+    }
 }
 
 

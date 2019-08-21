@@ -34,6 +34,8 @@ Route::group(['middleware'=>['sess']], function(){
 	Route::get('/home/addmedi', 'HomeController@addmedi')->name('home.addmedi');
 	Route::post('/home/addmedi', 'HomeController@savemedi');
 	Route::get('/home/edit/{sid}', 'HomeController@edit')->name('home.edit');
+	Route::get('/home/mdelete/{sid}', 'HomeController@medidelete')->name('home.mdelete');
+	Route::post('/home/mdelete/{sid}', 'HomeController@medidelete');
 	Route::post('/home/edit/{sid}', 'HomeController@update');
 	Route::get('/home/details/{sid}', 'HomeController@details')->name('home.details');
 

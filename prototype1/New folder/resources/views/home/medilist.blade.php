@@ -31,7 +31,7 @@
 			<td>{{$value['available']}}</td>
 			<td>
 				<a href="{{route('home.addmedi')}}">add</a> |
-				<a href="{{route('home.delete', $value['id'])}}">Delete</a> |
+				<a href="{{route('home.mdelete', $value['id'])}}">Delete</a> |
 				
 			</td>
 		</tr>
