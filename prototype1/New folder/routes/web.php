@@ -14,7 +14,8 @@ Route::get('/abc', function () {
 //Route::get('/login', 'LoginController@index');
 Route::get('/login', ['as'=>'login.index','uses'=>'LoginController@index']);
 Route::post('/login', ['uses'=>'LoginController@verify']);
-
+Route::get('/customer/registration', 'customerController@reg')->name('customer.registration');
+Route::post('/customer/registration', 'customerController@regcus');
 
 Route::group(['middleware'=>['sess']], function(){
 
@@ -29,6 +30,9 @@ Route::group(['middleware'=>['sess']], function(){
 	Route::post('/home/profile', 'HomeController@upload');
 
 	Route::get('/home/stdList', 'HomeController@show')->name('home.stdlist');
+	Route::get('/home/mediList', 'HomeController@showmedi')->name('home.medilist');
+	Route::get('/home/addmedi', 'HomeController@addmedi')->name('home.addmedi');
+	Route::post('/home/addmedi', 'HomeController@savemedi');
 	Route::get('/home/edit/{sid}', 'HomeController@edit')->name('home.edit');
 	Route::post('/home/edit/{sid}', 'HomeController@update');
 	Route::get('/home/details/{sid}', 'HomeController@details')->name('home.details');

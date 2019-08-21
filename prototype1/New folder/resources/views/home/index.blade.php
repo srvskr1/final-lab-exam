@@ -10,6 +10,7 @@
 	<a href="{{route('home.profile')}}">Profile</a> |
 	<a href="{{route('home.add')}}">Create</a> |
 	<a href="{{route('home.stdlist')}}">Customer List</a> |
+	<a href="{{route('home.medilist')}}">Medicine List</a> |
 	<a href="/logout">logout</a>
 
 

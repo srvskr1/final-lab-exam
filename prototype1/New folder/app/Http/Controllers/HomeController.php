@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\medicine;
 use Validator;
 use App\Http\Requests\StudentRequest;
 
@@ -147,6 +148,40 @@ class HomeController extends Controller
             echo "File upload error!";
         }
 
+    }
+
+    public function showmedi(){
+
+        $stdList = medicine::all();
+
+        //return json($stdlist);
+       /* echo $stdList;*/
+        return view('home.medilist', ['std'=> $stdList]);
+    }
+
+    public function addmedi(){
+
+        
+
+        //return json($stdlist);
+       /* echo $stdList;*/
+        return view('home.addmedi');
+    }
+
+    public function savemedi(Request $req){
+
+
+
+        
+        $user = new medicine();
+        $user->name = $req->name;
+        $user->type = $req->type;
+        $user->category = $req->category;
+        $user->vendor_name = $req->vendor_name;
+        $user->price = $req->price;
+        $user->save();
+
+        return redirect()->route('home.medilist');
     }
 }
 
