@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\medicine;
 use Validator;
 use App\Http\Requests\StudentRequest;
 
@@ -57,17 +58,16 @@ class HomeController extends Controller
                     ->with('errors', $validator->errors());
         } */     
 
-/*    	$user = new User();
+    	$user = new User();
     	$user->username = $req->uname;
     	$user->password = $req->password;
-    	$user->name = $req->name;
-    	$user->dept = $req->dept;
-    	$user->cgpa = $req->cgpa;
-    	$user->type = "user";
+    	$user->Name = $req->name;
+    	$user->email = $req->email;
+    	$user->type = "admin";
     	$user->save();
-*/
-    	/*$data = User::where('username', $req->uname)->where('password', $req->password)->get();
-    	return redirect()->route('home.details', $data[0]->userId);*/
+
+    	$data = User::where('username', $req->uname)->where('password', $req->password)->get();
+    	return redirect()->route('home.details', $data[0]->id);
     }
 
 	public function details($id){
@@ -79,9 +79,10 @@ class HomeController extends Controller
 
     public function show(){
 
-    	$stdList = User::all();
+    	$stdList = User::where('type','customer')->get();
 
         //return json($stdlist);
+       /* echo $stdList;*/
     	return view('home.stdlist', ['std'=> $stdList]);
     }
 	
@@ -92,16 +93,16 @@ class HomeController extends Controller
     }
 
     public function update(Request $req, $id){
-
+        $request= $req->session()->get('username');
     	$user = User::find($id);
 
-    	$user->username = $req->uname;
-    	$user->name = $req->name;
-    	$user->dept = $req->dept;
-    	$user->cgpa = $req->cgpa;
+    	$user->username = $request;
+    	$user->Name = $req->name;
+    	$user->email = $req->email;
+    	
     	$user->save();
 
-		return redirect()->route('home.stdlist');
+		return redirect()->route('home.profile');
     }
 	public function delete($id){
 
@@ -115,9 +116,14 @@ class HomeController extends Controller
 		return redirect()->route('home.stdlist');
 	}
 
-    public function profile(){
+    public function profile(Request $req){
 
-        return view('home.profile');
+        $request= $req->session()->get('username');
+        $stdList = User::where('username',$request)->get();
+
+        //echo $stdList;
+        return view('home.profile', ['std'=> $stdList[0]]);
+        
     }
 
     public function upload(Request $req){
@@ -142,6 +148,45 @@ class HomeController extends Controller
             echo "File upload error!";
         }
 
+    }
+
+    public function showmedi(){
+
+        $stdList = medicine::all();
+
+        //return json($stdlist);
+       /* echo $stdList;*/
+        return view('home.medilist', ['std'=> $stdList]);
+    }
+
+    public function addmedi(){
+
+        
+
+        //return json($stdlist);
+       /* echo $stdList;*/
+        return view('home.addmedi');
+    }
+
+    public function savemedi(Request $req){
+
+
+
+        
+        $user = new medicine();
+        $user->name = $req->name;
+        $user->type = $req->type;
+        $user->category = $req->category;
+        $user->vendor_name = $req->vendor_name;
+        $user->price = $req->price;
+        $user->save();
+
+        return redirect()->route('home.medilist');
+    }
+    public function medidelete($id){
+
+        $std = medicine::find($id);
+        return view('home.medidelete', ['std'=>$std]);
     }
 }
 

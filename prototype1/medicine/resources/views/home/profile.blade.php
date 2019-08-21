@@ -8,9 +8,30 @@
 
 	
 	<form method="post" enctype="multipart/form-data">
-		{{csrf_field()}}
-		<input type="file" name="pic">
-		<input type="submit" name="submit" value="Submit">
+		<table>
+			
+		
+		<tr>
+			<td>UserId :</td>
+			<td>{{$std['id']}}</td>
+		</tr>
+		<tr>
+			<td>Username :</td>
+			<td>{{$std['username']}}</td>
+		</tr>
+		<tr>
+			<td>Name :</td>
+			<td>{{$std['Name']}}</td>
+		</tr>
+		<tr>
+			<td>Email :</td>
+			<td>{{$std['email']}}</td>
+		</tr>
+
+		<tr>
+			<a href="{{route('home.edit', $std['id'])}}">Edit</a>
+		</tr>
+		</table>
 	</form>
 
 

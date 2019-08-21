@@ -14,18 +14,20 @@
 		<tr>
 			<td>ID</td>
 			<td>Name</td>
-			<td>CGPA</td>
+			<td>User Name</td>
+			<td>email</td>
 			<td>Action</td>
 		</tr>
 		@foreach($std as $value)
 		<tr>
-			<td>{{$value['userId']}}</td>
-			<td>{{$value['name']}}</td>
-			<td>{{$value['cgpa']}}</td>
+			<td>{{$value['id']}}</td>
+			<td>{{$value['Name']}}</td>
+			<td>{{$value['username']}}</td>
+			<td>{{$value['email']}}</td>
 			<td>
-				<a href="{{route('home.edit', $value['userId'])}}">Edit</a> |
-				<a href="{{route('home.delete', $value['userId'])}}">Delete</a> |
-				<a href="{{route('home.details', $value['userId'])}}">Details</a>
+				
+				<a href="{{route('home.delete', $value['id'])}}">Delete</a>
+				
 			</td>
 		</tr>
 		@endforeach
