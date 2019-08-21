@@ -32,22 +32,11 @@ class LoginController extends Controller
 			{
 				return redirect()->route('home.index');
 			}
-			elseif ($result[0]->type=='investor') 
+			elseif ($result[0]->type=='customer') 
 			{
-				return redirect()->route('investor.index');
+				return redirect()->route('customer.index');
 			}
-			elseif ($result[0]->type=='superadmin') 
-			{
-				return redirect()->route('superadmin.index');
-			}
-			elseif ($result[0]->type=='idea') 
-			{
-				return redirect()->route('idea.index');
-			}
-			elseif ($result[0]->type=='supportadmin') 
-			{
-				return redirect()->route('supportadmin.index');
-			}
+			
 
 			
 		}

@@ -22,7 +22,7 @@ Route::post('/login', ['uses'=>'LoginController@verify']);
 
 Route::group(['middleware'=>['sess']], function(){
 
-											/*investor*/
+											/*Amin*/
 
 	
 
@@ -32,17 +32,22 @@ Route::group(['middleware'=>['sess']], function(){
 	Route::get('/home/profile', 'HomeController@profile')->name('home.profile');
 	Route::post('/home/profile', 'HomeController@upload');
 
-	Route::get('/home/stdList', 'HomeController@show')->name('home.stdlist');
+	Route::get('/home/customerList', 'HomeController@show')->name('home.stdList');
 	Route::get('/home/edit/{sid}', 'HomeController@edit')->name('home.edit');
 	Route::post('/home/edit/{sid}', 'HomeController@update');
 	Route::get('/home/details/{sid}', 'HomeController@details')->name('home.details');
 
-	Route::group(['middleware'=>['type']], function(){
+
+	/*Customer*/
+	Route::get('/customer', 'customerController@index')->name('customer.index');
+
+
+	/*Route::group(['middleware'=>['type']], function(){
 		Route::get('/home/add', 'HomeController@add')->name('home.add');
 		Route::post('/home/add', 'HomeController@create');
 		Route::get('/home/delete/{sid}', 'HomeController@delete')->name('home.delete');
 		Route::post('/home/delete/{sid}', 'HomeController@destroy');	
-	});
+	});*/
 
 });
 

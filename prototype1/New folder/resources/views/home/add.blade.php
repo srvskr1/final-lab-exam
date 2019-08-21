@@ -22,22 +22,12 @@
 			<td><input type="text" name="name"></td>
 		</tr>
 		<tr>
-			<td>CGPA</td>
-			<td><input type="text" name="cgpa"></td>
+			<td>Email</td>
+			<td><input type="text" name="email"></td>
 		</tr>
 		<tr>
 			<td>Password</td>
 			<td><input type="password" name="password"></td>
-		</tr>
-		<tr>
-			<td>DEPT</td>
-			<td>
-				<select name="dept">
-					<option value="CSE">CSE</option>
-					<option value="SE">SE</option>
-					<option value="CSSE">CSSE</option>
-				</select>
-			</td>
 		</tr>
 		<tr>
 			<td></td>

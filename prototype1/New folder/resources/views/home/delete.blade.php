@@ -15,8 +15,8 @@
 	@csrf
 	<table border="0">
 		<tr>
-			<td>UserId :</td>
-			<td>{{$std['userId']}}</td>
+			<td>Id :</td>
+			<td>{{$std['id']}}</td>
 		</tr>
 		<tr>
 			<td>Username :</td>
@@ -24,18 +24,13 @@
 		</tr>
 		<tr>
 			<td>Name :</td>
-			<td>{{$std['name']}}</td>
+			<td>{{$std['Name']}}</td>
 		</tr>
 		<tr>
-			<td>CGPA :</td>
-			<td>{{$std['cgpa']}}</td>
+			<td>Email :</td>
+			<td>{{$std['email']}}</td>
 		</tr>
-		<tr>
-			<td>DEPT :</td>
-			<td>
-				{{$std['dept']}}
-			</td>
-		</tr>
+		
 </table>
 	<h3>Are you sure?</h3>
 	<input type="submit" name="delete" value="Confirm">

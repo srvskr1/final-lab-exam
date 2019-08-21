@@ -34,10 +34,9 @@ class StudentRequest extends FormRequest
         return [
 
             "uname"     => "required | unique:users,username",
-            "password"  => "required|min:8",
+            "password"  => "required",
             "name"      => "required",
-            "dept"      => "required",
-            "cgpa"      => "required"
+            
         ];
     }
 }

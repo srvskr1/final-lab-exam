@@ -57,17 +57,16 @@ class HomeController extends Controller
                     ->with('errors', $validator->errors());
         } */     
 
-/*    	$user = new User();
+    	$user = new User();
     	$user->username = $req->uname;
     	$user->password = $req->password;
-    	$user->name = $req->name;
-    	$user->dept = $req->dept;
-    	$user->cgpa = $req->cgpa;
-    	$user->type = "user";
+    	$user->Name = $req->name;
+    	$user->email = $req->email;
+    	$user->type = "admin";
     	$user->save();
-*/
-    	/*$data = User::where('username', $req->uname)->where('password', $req->password)->get();
-    	return redirect()->route('home.details', $data[0]->userId);*/
+
+    	$data = User::where('username', $req->uname)->where('password', $req->password)->get();
+    	return redirect()->route('home.details', $data[0]->id);
     }
 
 	public function details($id){
@@ -79,9 +78,10 @@ class HomeController extends Controller
 
     public function show(){
 
-    	$stdList = User::all();
+    	$stdList = User::where('type','customer')->get();
 
         //return json($stdlist);
+       /* echo $stdList;*/
     	return view('home.stdlist', ['std'=> $stdList]);
     }
 	
