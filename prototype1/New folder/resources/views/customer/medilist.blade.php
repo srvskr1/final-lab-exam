@@ -7,7 +7,7 @@
 
 	<h2>Medicine List:</h2>
 	
-	<a href="/home">Back</a> |
+	<a href="{{route('customer.index')}}">Back</a> |
 	<a href="/logout">logout</a>
 
 	<table border="1">
@@ -30,9 +30,9 @@
 			<td>{{$value['price']}}</td>
 			<td>{{$value['available']}}</td>
 			<td>
-				<a href="{{route('home.addmedi')}}">add</a> |
-				<a href="{{route('home.mdelete', $value['id'])}}">Delete</a> |
 				
+				
+				<a href="{{route('customer.cart',$value['id'])}}">add</a> |
 			</td>
 		</tr>
 		@endforeach

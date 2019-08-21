@@ -42,7 +42,12 @@ Route::group(['middleware'=>['sess']], function(){
 
 
 	Route::get('/customer', 'customerController@index')->name('customer.index');
+	Route::get('/customer/profile', 'customerController@profile')->name('customer.profile');
+	Route::get('/customer/mediList', 'customerController@showmedi')->name('customer.medilist');
+	Route::get('/customer/mediList/{sid}', 'customerController@cart')->name('customer.cart');
+	Route::post('/customer/mediList/{sid}', 'customerController@cartadd');
 
+	
 	Route::group(['middleware'=>['type']], function(){
 		Route::get('/home/add', 'HomeController@add')->name('home.add');
 		Route::post('/home/add', 'HomeController@create');

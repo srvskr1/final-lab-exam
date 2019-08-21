@@ -7,9 +7,9 @@
 	<h1>Cutomer! {{session('user')}}</h1> 
 
 	
-	<a href="{{route('home.profile')}}">Profile</a> |
-	<a href="{{route('home.add')}}">Create</a> |
-	<a href="{{route('home.stdlist')}}">Student List</a> |
+	<a href="{{route('customer.profile')}}">Profile</a> |
+	<a href="{{route('customer.medilist')}}">Medicine List</a> |
+	
 	<a href="/logout">logout</a>
 
 
